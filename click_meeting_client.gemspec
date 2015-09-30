@@ -5,7 +5,7 @@ require 'click_meeting_client/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "click_meeting_client"
-  spec.version       = ClickMeetingClient::VERSION
+  spec.version       = ClickMeetingClient::ClickMeetingRestClient::VERSION
   spec.authors       = ["JackyHoTheBetterOne"]
   spec.email         = ["jacky@wishpond.com"]
 
