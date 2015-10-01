@@ -8,7 +8,12 @@ require 'uri'
 require 'cgi'
 
 module ClickMeetingClient
-  class ClientError < StandardError; end
+  class ClientError < StandardError
+    attr_accessor :body
+    def initialize(body)
+      @body = body
+    end
+  end
   class ClickMeetingRestClient
       def initialize(params)
           @formats = ["json", "xml", "js", "printr"]
