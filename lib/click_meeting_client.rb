@@ -59,7 +59,7 @@ module ClickMeetingClient
 
           response = http.request(request)
 
-          raise ClientError.new(response.errors[0]['message']) if response.code.to_i != 200
+          # raise ClientError.new(response['errors'][0]['message']) if response.code.to_i != 200
 
           # raise ClientError.new("400 Bad Request") if response.code.to_i == 400
           # raise ClientError.new("401 Unauthorized") if response.code.to_i == 401
@@ -70,7 +70,8 @@ module ClickMeetingClient
           # raise ClientError.new("501 Not implemented") if response.code.to_i == 501
 
           unless response.code.to_i == 200 or response.code.to_i == 201
-              raise ClientError.new("Response status code: #{response.code}")
+              binding.pry
+              raise ClientError.new(JSON.parse(response.body))
           end
 
           if !@format && format_response
