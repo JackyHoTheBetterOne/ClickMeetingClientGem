@@ -70,7 +70,6 @@ module ClickMeetingClient
           # raise ClientError.new("501 Not implemented") if response.code.to_i == 501
 
           unless response.code.to_i == 200 or response.code.to_i == 201
-              binding.pry
               raise ClientError.new(JSON.parse(response.body))
           end
 
